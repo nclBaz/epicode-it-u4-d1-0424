@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
 	public static void main(String[] args) {
 
@@ -49,5 +51,39 @@ public class Main {
 			System.out.println("Elemento corrente " + stagioni[i]);
 		}
 
+		System.out.println("----------------------------------------- METODI -----------------------------------------------");
+		int result = sum(2, 2);
+		System.out.println(result);
+		System.out.println(sum(3, 3));
+
+		printSum(2, 2);
+
+
+		System.out.println("----------------------------------------- SCANNER -----------------------------------------------");
+		Scanner scanner = new Scanner(System.in); // Creazione di un oggetto di tipo Scanner, ci serve per chiedere degli input all'utente
+		// System.in serve per dire allo Scanner di leggere ciò che l'utente scrive nel terminale
+
+		System.out.println("Ciao inserisci il tuo nome");
+		String nomeUtente = scanner.nextLine();
+
+		System.out.println("Ciao " + nomeUtente + ", per favore inserisci un numero");
+		int primoNumero = Integer.parseInt(scanner.nextLine()); // Nonostante io debba leggere dei numeri è preferibile usare il nextLine dappertutto
+		// int primoNumero = scanner.nextInt(); // nextInt leggerà il numero inserito dall'utente e lo salverà nella variabile primoNumero
+		System.out.println("Ora per favore inserisci un secondo numero");
+		int secondoNumero = Integer.parseInt(scanner.nextLine());
+
+		System.out.println("La somma dei numeri inseriti è: " + sum(primoNumero, secondoNumero));
+
+		scanner.close(); // Anche se non servirebbe in questo caso alla fine di tutto è sempre bene chiudere lo scanner
+	}
+
+	public static int sum(int num1, int num2) { // int è il TIPO DI RITORNO, ovvero che tipo di dato mi verrà restituito dal metodo
+		// se il metodo non è dichiarato come void, allora dovrà avere SEMPRE un return di un numero intero
+		return num1 + num2; // Quindi qua dovrò tornare un numero int
+	}
+
+	public static void printSum(int num1, int num2) {
+		// return num1 + num2; <-- Se il metodo è void NON RESTITUISCE ALCUN VALORE!!
+		System.out.println("La somma dei due numeri è: " + (num1 + num2));
 	}
 }
